@@ -13,7 +13,7 @@
     revision: INHERIT
     project: mssql-demo
     pipeline: Deploy
-  - action: Init Migration Table
+  - action: Migrate DB
     type: POWERSHELL
     working_directory: $MIGRATIONS_PROJECT_PATH
     commands:
