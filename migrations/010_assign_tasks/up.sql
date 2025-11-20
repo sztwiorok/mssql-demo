@@ -1,0 +1,10 @@
+CREATE TABLE TaskAssignments (
+    AssignmentId INT IDENTITY(1,1) PRIMARY KEY,
+    TaskId INT NOT NULL,
+    UserId INT NOT NULL,
+    AssignedDate DATETIME2 DEFAULT SYSUTCDATETIME(),
+    FOREIGN KEY (TaskId) REFERENCES Tasks(TaskId),
+    FOREIGN KEY (UserId) REFERENCES Users(UserId)
+);
+GO
+
