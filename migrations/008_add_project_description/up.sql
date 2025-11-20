@@ -1,0 +1,3 @@
+ALTER TABLE Projects ADD Description NVARCHAR(500) NULL;
+GO
+
