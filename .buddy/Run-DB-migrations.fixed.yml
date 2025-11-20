@@ -1,0 +1,23 @@
+- pipeline: Run DB migrations
+  refs:
+  - refs/heads/main
+  events:
+  - type: WEBHOOK
+  fail_on_prepare_env_warning: true
+  actions:
+  - action: Run mssql-demo/Deploy
+    type: RUN_NEXT_PIPELINE
+    wait: true
+    comment: "Triggered by $BUDDY_PIPELINE_NAME execution #$BUDDY_RUN_ID"
+    priority: NORMAL
+    revision: INHERIT
+    project: mssql-demo
+    pipeline: Deploy
+  - action: Init Migration Table
+    type: POWERSHELL
+    working_directory: $MIGRATIONS_PROJECT_PATH
+    commands:
+    - ./migrate.ps1
+    targets:
+    - win_ihdq63apvsn
+    run_as_script: true
