@@ -7,14 +7,6 @@
   - type: PUSH
   fail_on_prepare_env_warning: true
   actions:
-  - action: Run mssql-demo/Deploy
-    type: RUN_NEXT_PIPELINE
-    wait: true
-    comment: "Triggered by $BUDDY_PIPELINE_NAME execution #$BUDDY_RUN_ID"
-    priority: NORMAL
-    revision: INHERIT
-    project: mssql-demo
-    pipeline: Deploy
   - action: Run Migrations
     type: POWERSHELL
     working_directory: $MIGRATIONS_PROJECT_PATH
