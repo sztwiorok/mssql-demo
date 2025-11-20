@@ -7,7 +7,6 @@
   actions:
   - action: Run mssql-demo/Deploy
     type: RUN_NEXT_PIPELINE
-    disabled: true
     wait: true
     comment: "Triggered by $BUDDY_PIPELINE_NAME execution #$BUDDY_RUN_ID"
     priority: NORMAL
