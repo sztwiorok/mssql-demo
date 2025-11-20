@@ -7,6 +7,13 @@
   - type: PUSH
   fail_on_prepare_env_warning: true
   actions:
+  - action: Transfer files
+    type: TRANSFER
+    local_path: /
+    remote_path: $MIGRATIONS_PROJECT_PATH
+    deletion_disabled: true
+    targets:
+    - win_ihdq63apvsn
   - action: Run Migrations
     type: POWERSHELL
     working_directory: $MIGRATIONS_PROJECT_PATH
