@@ -30,5 +30,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: sudo apt-get update && sudo apt-get install nmap
+      - run: sudo apt-get -o APT::Get::Assume-Yes=false install nmap
         
 
