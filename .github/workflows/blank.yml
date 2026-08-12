@@ -24,8 +24,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+      - run: apt-config dump | grep -i -E 'assume|force-yes'
+      - run: grep -rn -i assume /etc/apt/apt.conf.d/ || echo brak
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: sudo apt-get update && sudo apt-get install nmap
+        
 
